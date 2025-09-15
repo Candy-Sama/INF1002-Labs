@@ -30,11 +30,6 @@ import sys
 # You can use sys.argv[1] to get the first input argument.
 # sys.argv[2] is the second argument, etc.
 
-# Get the three arguments from command line
-arg1 = sys.argv[1]  # First number
-arg2 = sys.argv[2]  # Second number
-arg3 = sys.argv[3]  # Third number
-
 def AverageCalculator():
     try:
         # Check if we have exactly 3 arguments (plus script name = 4 total)
