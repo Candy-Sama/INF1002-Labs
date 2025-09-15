@@ -39,7 +39,37 @@ import sys
 # You can use sys.argv[1] to get the first input argument.
 # sys.argv[2] is the second argument, etc.
 def WeeklyPaymentCalculator():
-    pass
+    try:
+        # Check if we have exactly 3 arguments (plus script name = 4 total)
+        if len(sys.argv) != 4:
+            print("Your input is invalid!");
+            return;
+
+        # Get the three arguments and convert to float
+        working_hours = float(sys.argv[1]);
+        normal_rate = float(sys.argv[2]);
+        overtime_rate = float(sys.argv[3]);
+    
+        # If input of working hours is more than 168 or negative, or any rates are negative, print error
+        if working_hours < 0 or working_hours > 168 or normal_rate < 0 or overtime_rate < 0:
+            print("Your input is invalid!");
+            return; 
+
+        # Calculate normal hours and overtime hours
+        normal_hours = min(working_hours, 40); #ensure maximum of 40 normal hours
+        overtime_hours = max(0, working_hours - 40); #overtime hours is any hours above 40
+    
+        # Calculate payments done according to the formulas given
+        normal_salary = normal_hours * normal_rate;
+        overtime_salary = overtime_hours * overtime_rate;
+        total_salary = normal_salary + overtime_salary;
+
+
+        # Print salaries with 2 decimal places
+        print(f"Normal Salary:{normal_salary:.2f}, Extra Salary:{overtime_salary:.2f}, Total Salary:{total_salary:.2f}");
+    except:
+        print("Your input is invalid!");
+        return;
 
 
 if __name__=='__main__':

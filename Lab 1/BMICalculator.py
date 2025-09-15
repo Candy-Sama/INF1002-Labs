@@ -75,9 +75,60 @@ import sys
 # sys.argv[2] is the second argument, etc.
 
 def BMICalculator():
-    pass
+    try:
+        # Check if we have exactly 3 arguments (plus script name = 4 total)
+        if len(sys.argv) != 4:
+            print("Your input is invalid!");
+            return
+        
+        #otherwise, proceed with calculations
+        # Get the 3 arguments from command line
+        unit_system = sys.argv[1].lower();  # "metric" or "imperial"
+        height = float(sys.argv[2]);        # Convert to float
+        weight = float(sys.argv[3]);        # Convert to float
 
+        # Make sure unit system is valid
+        if unit_system not in ["metric", "imperial"]:
+            print("Your input is invalid!");
+            return;
+        
+        # Make sure that height and weight are positive
+        if height <= 0 or weight <= 0:
+            print("Your input is invalid!");
+            return;
+        
+        # Calculate BMI based on unit system
+        if unit_system == "metric":
+            bmi = weight / (height ** 2);
+        else:  # imperial
+            bmi = 703 * weight / (height ** 2);
 
+        # Simplified category determination using list of tuples
+        categories = [
+            (16, "Severe Thinness"),
+            (17, "Moderate Thinness"), 
+            (18.5, "Mild Thinness"),
+            (25, "Normal"),
+            (30, "Overweight"),
+            (35, "Obese Class I"),
+            (40, "Obese Class II"),
+            (float('inf'), "Obese Class III")  # Everything above 40
+        ]
+        
+        # For each threshold & category, find the appropriate category using the bmi value
+        for threshold, category in categories:
+            #if bmi is less than or equal to the threshold, we found our category
+            if bmi <= threshold:
+                break # Found the category, exit loop
+        
+         # Print BMI with 2 decimal places and the category by using formatted string
+        print(f"{bmi:.2f}\t{category}");
+        
+   #if conversion to float fails or index is out of range, catch the exception and print error
+    except (ValueError, IndexError):
+        print("Your input is invalid!")
+
+#DO NOT TOUCH THE CODE BELOW
 if __name__=='__main__':
     BMICalculator()
     
