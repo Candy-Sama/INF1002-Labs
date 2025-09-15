@@ -1,4 +1,4 @@
-r'''
+'''
 Task Description:
 Develop one employee weekly payment calculation program. 
 The program requirement is as follows: 

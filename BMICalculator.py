@@ -1,4 +1,4 @@
-r'''
+'''
 Task Description:
 In this task, we develop a Body Mass Index (BMI) Calculator that can be used to 
 calculate your BMI value and weight status while taking your age into 
