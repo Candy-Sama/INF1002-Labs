@@ -17,6 +17,9 @@ C:\INF1002\Lab2\CountPopularChars>python CountPopularChars.py sdsERwweYxcxeewHJe
 d:7,s:7,e:6,j:4,w:3
 '''
 import sys
+import time
+
+s = time.time()
 # write your code here
 # you can use sys.argv[1] to get the first input argument.
 # sys.argv[2] is the second argument, etc.
@@ -44,6 +47,7 @@ def CountPopularChars():
      #print the top 5 characters and their counts
      output = ','.join([f"{char}:{count}" for char, count in top_5_chars]);
      print(output);
+     print("%s" % (time.time() - s))
 
 if __name__=='__main__':
       CountPopularChars();

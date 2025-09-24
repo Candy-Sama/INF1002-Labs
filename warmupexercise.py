@@ -130,15 +130,15 @@ with open('Lab2_testData.txt', 'r') as file: # Open the file
 all_keywords = []
 
 for line in lines: # Read each line
-    keywords = line.strip().split(',')
+    keywords = line.strip().split(',') # Split the line into keywords
     all_keywords.extend(keywords)
 
 keyword_counts = Counter(all_keywords)
 top_5_keywords = keyword_counts.most_common(5)
 
-with open('top_5.txt', 'w') as output_file:
+with open('top_5.txt', 'w') as output_file: # Write to a new file
     for keyword, count in top_5_keywords:
-        output_file.write(f"{keyword}: {count}\n")
+        output_file.write(f"{keyword}: {count}\n") #Write each keyword and its count to the file
 
 for keyword, count in top_5_keywords:
     print(f"{keyword}: {count}")

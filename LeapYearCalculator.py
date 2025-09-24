@@ -26,6 +26,9 @@ The number of Leap Years is 3, the Leap Years are 1992, 1996, 2000
 '''
 
 import sys
+import time
+
+s = time.time()
 # write your code here
 # you can use sys.argv[1] to get the first input argument.
 # sys.argv[2] is the second argument, etc.
@@ -55,8 +58,11 @@ def LeapYearCalculator():
      if len(leap_years) == 0:
           print("The number of Leap Years is 0, the Leap Years are");
      else:
-          leap_years_str = ', '.join(map(str, leap_years));
+          leap_years_str = ', '.join(map(str, leap_years)); #convert the list of leap years to a string by joining each element with a comma and a space
           print(f"The number of Leap Years is {len(leap_years)}, the Leap Years are {leap_years_str}");
+
+
 
 if __name__=='__main__':
      LeapYearCalculator();
+     print("%s" % (time.time() - s))
