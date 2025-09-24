@@ -48,7 +48,7 @@ def LeapYearCalculator():
 
      #find all the leap years in the given period
      for year in range(start_year, end_year + 1): #include the end year
-          if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+          if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0): #find the leap year by checking if it meets the leap year rule
                leap_years.append(year);
 
      #print the results
