@@ -40,7 +40,7 @@ def SearchPattern():
      elif count == 1:
           print("Pattern appears 1 time!")
      else:
-          print(f"Pattern appears {count} times!")
+          print(f"Pattern appears {count} time!")
 
 if __name__=='__main__':
      SearchPattern()
