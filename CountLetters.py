@@ -63,18 +63,43 @@ import sys
 
 #1
 def letter_count(tmpStr):
-      pass
+      countDict = {}
+      for char in tmpStr:
+            if char in countDict:
+                  countDict[char] += 1
+            else:
+                  countDict[char] = 1
+      return countDict
 
 #2 this function, there are two input arguments: two strings
 def double_count(str1, str2):
-      pass
+      countDict = letter_count(str1)
+      for char in str2:
+            if char in countDict:
+                  countDict[char] += 1
+            else:
+                  countDict[char] = 1
+      return countDict
 
 #3 This one takes only one input argument
-def various_counts(*tmpStr):
-      pass
+def various_counts(*tmpStr): #*tmpStr means it can take any number of arguments
+      countDict = {}
+      for arg in tmpStr: #arg is each string in the list of strings
+            tempDict = letter_count(arg) #get the letter count for each string
+            for char in tempDict:  #merge the two dictionaries
+                  if char in countDict: #char is already in countDict
+                        countDict[char] += tempDict[char]
+                  else:
+                        countDict[char] = tempDict[char]
+      return countDict
 
 def CountLetters():
-      pass
+      for arg in sys.argv[1:]: #sys.argv[1:] is a list of all input arguments except the first one
+            strList = arg.split(',') #split the string by comma and store it in a list
+            total = various_counts(*strList) #*strList means unpack the list into individual arguments
+            sorted_total = sorted(total.keys(), reverse=True) #sort the keys in descending order
+            for item in sorted_total:
+                  print ('%s:%d' % (item, total[item]), end=' ') #print each character and its count in the specified format
 
 if __name__=='__main__':
       CountLetters()
