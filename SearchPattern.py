@@ -36,7 +36,7 @@ def SearchPattern():
           if candidate[i:i+pattern_length] == pattern: #check if the sublist of candidate matches the pattern
                count += 1 #if it matches, increment the count
      if count == 1:
-          print("Pattern apppears 1 time!")
+          print("Pattern appears 1 time!")
      else:
           print(f"Pattern appears {count} time!")
 
