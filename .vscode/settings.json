@@ -1,0 +1,17 @@
+{
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment.block.documentation.python",
+                    "string.quoted.docstring.multi.python",
+                    "string.quoted.single.block.python",
+                    "string.quoted.triple.python"
+                ],
+                "settings": {
+                    "foreground": "#6A9955"
+                }
+            }
+        ]
+    }
+}
