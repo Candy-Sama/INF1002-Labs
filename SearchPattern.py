@@ -35,7 +35,7 @@ def SearchPattern():
      for i in range(len(candidate) - pattern_length + 1): #iterate through the candidate
           if candidate[i:i+pattern_length] == pattern: #check if the sublist of candidate matches the pattern
                count += 1 #if it matches, increment the count
-     if count == 0:
+     if count <= 0:
           print("Pattern not found!")
      elif count == 1:
           print("Pattern appears 1 time!")
