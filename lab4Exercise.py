@@ -1,3 +1,5 @@
+import myMath
+
 """Warm up exercise for lab 4"""
 
 def factorial(n):
@@ -19,3 +21,5 @@ def fac_iterative(n):
     for i in range(2, n + 1): #starts at 2 because multiplying by 1 does nothing
         result *= i
     return result
+
+help(myMath) #prints out the docstring for the myMath module

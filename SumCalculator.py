@@ -25,14 +25,21 @@ import sys
 # sys.argv[2] is the second argument, etc.
 
 def sum_recursive(x):
-    pass
+    if x <= 0:
+        return 0
+    return x + sum_recursive(x - 1) #recursive calls itself repeatedly till it reaches 0
 
 def sum_iterative(x):
-    pass
+    total = 0
+    for i in range(1, x + 1): #between 1 to x, inclusive
+        total += i
+    return total
 
 def SumCalculator():
-    pass
-
+    inputNum = int(sys.argv[1])
+    recursiveSum = sum_recursive(inputNum)
+    iterativeSum = sum_iterative(inputNum)
+    print(f"The SUM value calculated by recursive is {recursiveSum} and by iterative is {iterativeSum}.")
 
 if __name__=='__main__':
      SumCalculator()

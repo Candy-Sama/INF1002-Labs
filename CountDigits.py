@@ -26,14 +26,23 @@ import sys
 # sys.argv[2] is the second argument, etc.
 
 def digit_recursive(x):
-      pass
- 
+      if x < 10:
+            return 1
+      return 1 + digit_recursive(x // 10)
+
 def digit_iterative(x):
-      pass
+      count = 0
+      while x > 0:
+            count += 1
+            x //= 10 #// means divide and round down to nearest integer
+      return count
 
 def CountDigits():
-      pass
-
+      inputNum = int(sys.argv[1])
+      recursiveDigits = digit_recursive(inputNum)
+      iterativeDigits = digit_iterative(inputNum)
+      #why use f-string? because it is easier to read and write
+      print(f"The number of digit(s) calculated by recursive is {recursiveDigits} and by iterative is {iterativeDigits}.")
 
 if __name__=='__main__':
       CountDigits()
