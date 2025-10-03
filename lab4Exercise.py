@@ -1,0 +1,1 @@
+"""Warm up exercise for lab 4"""
