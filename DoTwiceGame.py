@@ -66,14 +66,8 @@ def DoTwiceGame():
       x = int(sys.argv[1])
       option = int(sys.argv[2])
 
-      if option == 1:
-            print(doTwice(double, x))
-      elif option == 2:
-            print(doTwice(square, x))
-      elif option == 3:
-            print(doTwice(cube, x))
-      else:
-            print("It cannot be supported!")
+      operations = {1: double, 2: square, 3: cube}
+      print(doTwice(operations[option], x) if option in operations else "It cannot be supported!")
 
 
 if __name__=='__main__':

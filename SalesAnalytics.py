@@ -53,21 +53,13 @@ import sys
 # sys.argv[2] is the second argument, etc.
 
 def scale(list1, x):
-    scaled = []
-    for num in list1:
-        result = round(num * x, 10)  # Round to avoid floating point precision issues
-        # Keep as int if it's a whole number, otherwise float
-        scaled.append(int(result) if result.is_integer() else result)
-    return scaled
+    return list(map(lambda num: int(num * x) if (num * x).is_integer() else num * x, list1))
 
 def sort(list1):
-    sorted_list = sorted(list1, key=lambda x: int(x) % 10) # sort by last digit
-    return [int(x) if x.is_integer() else x for x in sorted_list]
+    return sorted(list1, key=lambda x: int(x) % 10)
 
 def goodSales(list1):
-    avg = sum(list1) / len(list1)
-    good_sales = list(filter(lambda x: x > avg, list1))
-    return [int(x) if x.is_integer() else x for x in good_sales]
+    return list(filter(lambda x: x > sum(list1) / len(list1), list1))
 
 
 def SalesAnalytics():
@@ -78,7 +70,7 @@ def SalesAnalytics():
     try:
         # Convert to float first, then to int if it's a whole number
         raw_numbers = list(map(float, sys.argv[1].split(',')))
-        sales_numbers = [int(num) if num.is_integer() else num for num in raw_numbers]
+        sales_numbers = [int(num) if isinstance(num, int) or num.is_integer() else num for num in raw_numbers]
         scale_factor = float(sys.argv[2])
     except ValueError:
         print("Invalid input!")
