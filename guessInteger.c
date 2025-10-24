@@ -54,7 +54,8 @@ Note:
 
 int main()
 {
-    /* code here */
+    /* Test code to verify C compiler is working */
+    printf("Hello World! C compiler is working correctly.\n");
 
     return 0;
 }
