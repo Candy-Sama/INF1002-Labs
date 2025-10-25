@@ -2,24 +2,6 @@
 *.exe
 *.out
 *.o
-*.obj
 
 # Temporary files
 *.tmp
-*.temp
-
-# VS Code workspace settings (keep tasks.json and keybindings.json)
-.vscode/settings.json
-.vscode/launch.json
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Downloaded installers/archives
-*.zip
-*.tar.gz
-*.rar
-
-# Log files
-*.log

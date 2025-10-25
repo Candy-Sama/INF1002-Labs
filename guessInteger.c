@@ -52,10 +52,8 @@ Note:
 *******************************************************************************/
 #include <stdio.h>
 
-int main()
-{
-    /* Test code to verify C compiler is working */
-    printf("Hello World! C compiler is working correctly.\n");
-
+int main() {
+    // Your C code here
+    
     return 0;
 }
