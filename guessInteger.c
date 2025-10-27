@@ -65,7 +65,7 @@ int main() {
     }
 
     printf("Player 2, you have 10 guesses remaining.\n");
-    printf("Enter your guess:");
+    printf("Enter your guess:\n");
     int guess;
     while (guesses > 0) {
         scanf("%d", &guess);
@@ -89,7 +89,7 @@ int main() {
             } else {
                 printf("Player 2, you have %d guesses remaining.\n", guesses);
             }
-            printf("Enter your guess:");
+            printf("Enter your guess:\n");
         }
     }
     printf("Player 1 wins.\n");
