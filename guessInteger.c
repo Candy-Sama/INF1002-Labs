@@ -63,12 +63,20 @@ int main() {
         printf("Player 1, enter a number between 1 and 1000:\n");
         scanf("%d", &number1);
     }
-
-    printf("Player 2, you have 10 guesses remaining.\n");
-    printf("Enter your guess:\n");
     int guess;
     while (guesses > 0) {
+        if (guesses > 0) {
+            if (guesses == 1) {
+                printf("Player 2, you have 1 guess remaining.\n");
+            } else {
+                printf("Player 2, you have %d guesses remaining.\n", guesses);
+            }
+            printf("Enter your guess:\n");
+        }
+
         scanf("%d", &guess);
+
+        
         if (guess < 1 || guess > 1000) { // Validate Player 2's input
             printf("That number is out of range.\n");
             printf("Enter your guess:\n");
@@ -83,14 +91,6 @@ int main() {
             printf("Too high.\n");
         }
         guesses--;
-        if (guesses > 0) {
-            if (guesses == 1) {
-                printf("Player 2, you have 1 guess remaining.\n");
-            } else {
-                printf("Player 2, you have %d guesses remaining.\n", guesses);
-            }
-            printf("Enter your guess:\n");
-        }
     }
     printf("Player 1 wins.\n");
 
