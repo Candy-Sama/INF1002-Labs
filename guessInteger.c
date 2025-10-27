@@ -71,7 +71,7 @@ int main() {
         scanf("%d", &guess);
         if (guess < 1 || guess > 1000) { // Validate Player 2's input
             printf("That number is out of range.\n");
-            printf("Enter your guess:\n");
+            printf("Enter your guess:");
             continue;
         }
         if (guess == number1) {
@@ -87,9 +87,9 @@ int main() {
             if (guesses == 1) {
                 printf("Player 2, you have 1 guess remaining.\n");
             } else {
-                printf("Player 2, you have %d guesses remaining.", guesses);
+                printf("Player 2, you have %d guesses remaining.\n", guesses);
             }
-            printf("Enter your guess:\n");
+            printf("Enter your guess:");
         }
     }
     printf("Player 1 wins.\n");
