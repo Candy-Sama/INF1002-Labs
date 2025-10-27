@@ -87,7 +87,7 @@ int main() {
             if (guesses == 1) {
                 printf("Player 2, you have 1 guess remaining.\n");
             } else {
-                printf("Player 2, you have %d guesses remaining.\n", guesses);
+                printf("Player 2, you have %d guesses remaining.", guesses);
             }
             printf("Enter your guess:\n");
         }
