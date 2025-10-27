@@ -54,6 +54,36 @@ Note:
 
 int main() {
     // Your C code here
-    
-    return 0;
+    int number1;
+    int guesses = 10;
+    printf("Player 1, enter a number between 1 and 1000:\n");
+    scanf("%d", &number1);
+    while (number1 < 1 || number1 > 1000) { // Validate Player 1's input
+        printf("That number is out of range.\n");
+        printf("Player 1, enter a number between 1 and 1000:\n");
+        scanf("%d", &number1);
+    }
+
+    printf("Player 2, you have 10 guesses remaining.\n Enter your guess:\n");
+    int guess;
+    while (guesses > 0) {
+        scanf("%d", &guess);
+        if (guess < 1 || guess > 1000) { // Validate Player 2's input
+            printf("That number is out of range.\n");
+            continue;
+        }
+        if (guess == number1) {
+            printf("Player 2 wins.\n");
+            return 0;
+        } else if (guess < number1) {
+            printf("Too low.\n");
+        } else {
+            printf("Too high.\n");
+        }
+        guesses--;
+        printf("Player 2, you have %d guesses remaining.\n Enter your guess:\n", guesses);
+    }
+    printf("Player 1 wins.\n");
+
+    return 0; // To end the program successfully
 }
