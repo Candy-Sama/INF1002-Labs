@@ -70,7 +70,7 @@ Example - 2:
     Enter a pattern (up to 255 characters):
     rat
     Should the match be case-sensitive? (Y/N):
-    N
+    N   
     No match.
  *******************************************************************************/
 #include <stdio.h>
