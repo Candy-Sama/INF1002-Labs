@@ -1,0 +1,17 @@
+# Compiled executables
+*.exe
+*.out
+*.o
+*.obj
+
+# VS Code settings (optional - remove this line if you want to commit .vscode)
+# .vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS specific
+.DS_Store
+Thumbs.db
