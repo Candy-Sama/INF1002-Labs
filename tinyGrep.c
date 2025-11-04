@@ -74,11 +74,75 @@ Example - 2:
     No match.
  *******************************************************************************/
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// Function to check if two characters match according to the rules
+int charMatch(char textChar, char patternChar, int caseSensitive) {
+    // Dot matches any character
+    if (patternChar == '.') {
+        return 1;
+    }
+    // Underscore matches any whitespace
+    if (patternChar == '_' && isspace(textChar)) {
+        return 1;
+    }
+    // Case-sensitive match
+    if (caseSensitive) {
+        return textChar == patternChar;
+    }
+    // Case-insensitive match
+    return tolower(textChar) == tolower(patternChar);
+}
+
+// Function to find pattern in text with custom matching rules
+char* customMatch(char *text, char *pattern, int caseSensitive) {
+    int textLen = strlen(text);
+    int patternLen = strlen(pattern);
+    
+    // Try each position in the text
+    for (int i = 0; i <= textLen - patternLen; i++) {
+        int match = 1;
+        // Check if pattern matches at this position
+        for (int j = 0; j < patternLen; j++) {
+            if (!charMatch(text[i + j], pattern[j], caseSensitive)) {
+                match = 0;
+                break;
+            }
+        }
+        if (match) {
+            return &text[i];
+        }
+    }
+    return NULL;
+}
 
 int main() 
 {
+    char lineOfText[256];
+    char pattern[256];
+    char caseSensitive;
 
-    /* code here */
+    printf("Enter a line of text (up to 255 characters):\n");
+    fgets(lineOfText, sizeof(lineOfText), stdin); // Read the input sentence
+    // Remove newline character if present
+    lineOfText[strcspn(lineOfText, "\n")] = '\0';
+
+    printf("Enter a pattern (up to 255 characters):\n");
+    fgets(pattern, sizeof(pattern), stdin); // Read the pattern
+    // Remove newline character if present
+    pattern[strcspn(pattern, "\n")] = '\0';
+
+    printf("Should the match be case-sensitive? (Y/N):\n");
+    scanf(" %c", &caseSensitive); // Read the case sensitivity choice
+
+    char *result = customMatch(lineOfText, pattern, (caseSensitive == 'Y' || caseSensitive == 'y'));
+
+    if (result != NULL) {
+        printf("Matches at position %d.\n", (int)(result - lineOfText));
+    } else {
+        printf("No match.\n");
+    }
 
     return 0;
 }
